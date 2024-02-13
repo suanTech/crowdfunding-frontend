@@ -1,0 +1,13 @@
+header {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: rgba(8, 18, 77, 0.768);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+.nav {
+  color: white;
+  display: flex;
+  gap: 1rem;
+}
