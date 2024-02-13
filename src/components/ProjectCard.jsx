@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
 import "./ProjectCard.css";
-import { oneProject } from "../data";
 
 function ProjectCard({ projectData }) {
   const createdDate = new Date(projectData.date_created);
@@ -18,15 +17,6 @@ function ProjectCard({ projectData }) {
           <h3>{projectData.title}</h3>
           <p>{projectData.description}</p>
           <p>{formattedDate}</p>
-          <ul>
-            {oneProject.pledges.map((data, key) => {
-              return (
-                <li key={key}>
-                  {data.amount} from {data.supporter}
-                </li>
-              )
-            })}
-          </ul>
         </div>
       </Link>
     </div>

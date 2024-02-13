@@ -8,6 +8,16 @@ export const allProjects = [
     is_open: false,
     date_created: "2020-03-20T14:22:23.382748Z",
     owner: 1,
+    pledges: [
+      {
+        id: 1,
+        amount: 100,
+        comment: "A comment for the pledge",
+        anonymous: false,
+        supporter: 3,
+        project_id: 1,
+      },
+    ],
   },
   {
     id: 2,
@@ -18,6 +28,16 @@ export const allProjects = [
     is_open: false,
     date_created: "2020-03-20T18:28:23.382748Z",
     owner: 1,
+    pledges: [
+      {
+        id: 1,
+        amount: 100,
+        comment: "A comment for the pledge",
+        anonymous: false,
+        supporter: 3,
+        project_id: 1,
+      },
+    ],
   },
   {
     id: 3,
@@ -28,6 +48,16 @@ export const allProjects = [
     is_open: false,
     date_created: "2020-02-20T14:28:23.382748Z",
     owner: 1,
+    pledges: [
+      {
+        id: 1,
+        amount: 100,
+        comment: "A comment for the pledge",
+        anonymous: false,
+        supporter: 3,
+        project_id: 1,
+      },
+    ],
   },
   {
     id: 4,
@@ -38,6 +68,16 @@ export const allProjects = [
     is_open: false,
     date_created: "2020-03-20T14:28:23.382748Z",
     owner: 2,
+    pledges: [
+      {
+        id: 1,
+        amount: 100,
+        comment: "A comment for the pledge",
+        anonymous: false,
+        supporter: 3,
+        project_id: 1,
+      },
+    ],
   },
   {
     id: 5,
