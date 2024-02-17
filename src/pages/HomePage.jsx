@@ -1,14 +1,22 @@
 import ProjectCard from "../components/ProjectCard";
-import { allProjects } from "../data";
-import './HomePage.css';
+import useProjects from "../hooks/use-projects";
+import "./HomePage.css";
 
 function HomePage() {
+  const { projects, isLoading } = useProjects();
+
   return (
-    <div className="project-grid">
-      {allProjects.map((projectData, key) => {
-        return <ProjectCard key={key} projectData={projectData} />;
-      })}
-    </div>
+    <>
+      {isLoading ? (
+        <div>loading</div>
+      ) : (
+        <div className="project-grid">
+          {projects.map((projectData, key) => {
+            return <ProjectCard key={key} projectData={projectData} />;
+          })}
+        </div>
+      )}
+    </>
   );
 }
 

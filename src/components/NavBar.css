@@ -1,13 +1,28 @@
 header {
   width: 100%;
   padding: 1rem 2rem;
-  background-color: rgba(8, 18, 77, 0.768);
+  background-color: #44529f;
   color: white;
   display: flex;
+  gap: 1rem;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 .nav {
   color: white;
   display: flex;
   gap: 1rem;
+}
+
+.button--static {
+  background: none;
+  border: none;
+  color: inherit;
+
+}
+@media(min-width: 768px) {
+  header {
+    flex-direction: row;
+  }
 }
