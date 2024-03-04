@@ -1,0 +1,40 @@
+@font-face {
+  font-family: sans;
+  src: url(/src/assets/fonts/PPNeueMontreal-Book.woff2);
+}
+@font-face {
+  font-family: disp;
+  src: url(/src/assets/fonts/PPFragment-GlareLight.otf);
+}
+body {
+  font-size: 16px;
+  font-family: sans;
+  background-color: rgb(240, 239, 239);
+}
+header{
+  position: fixed;
+}
+main {
+  padding: 80px 1rem 0;
+}
+
+@media (min-width: 768px) {
+  #root {
+    display: grid;
+    grid-template-columns: 95px calc(100% - 95px - 1rem);
+    grid-template-areas: "nav main";
+  }
+  header {
+    grid-area: nav;
+    max-width: 80px;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    color: white;
+
+  }
+  main {
+    grid-area: main;
+  }
+}

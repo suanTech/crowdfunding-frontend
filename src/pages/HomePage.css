@@ -1,6 +1,30 @@
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 2rem;
+.home-page {
+  height: 100%;
+}
+.page-header {
+  margin-block: 2rem;
+  color: #282828;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight:500;
+}
+.banner-image {
+  height:50vh;
+  object-fit: cover;
+}
+.button--action {
+  display: block;
+  width: max-content;
+  margin: 0 auto;
+  font-weight:500;
+  background-color: rgb(134, 206, 135);
+  color:rgb(38, 38, 38);
+  padding: 1rem 1.5rem;
+}
+.arrow-icon{
+  margin-left: 10px;
+  transition: margin .3s cubic-bezier(0.215, 0.610, 0.355, 1);
+}
+.button--action:hover .arrow-icon{
+  margin-left: 20px;
 }

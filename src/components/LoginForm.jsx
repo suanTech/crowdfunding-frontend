@@ -2,11 +2,14 @@ import { useState } from "react";
 import postLogin from "../api/post-login";
 import { useNavigate } from "react-router-dom";
 import "./Form.css";
+import getUser from "../api/get-user";
+import { useUserContext } from "../hooks/use-user-context";
 function LoginForm() {
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
   });
+  const { setUser } = useUserContext();
   const navigate = useNavigate();
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -18,11 +21,18 @@ function LoginForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (credentials.username && credentials.password) {
-      postLogin(credentials.username, credentials.password).then((res) => {
-        console.log(res);
-        window.localStorage.setItem("token", res.token);
-        navigate("/");
-      });
+      postLogin(credentials.username, credentials.password)
+        .then((res) => {
+          console.log(res);
+          window.localStorage.setItem("token", res.token);
+          return getUser(res.user_id);
+        })
+        .then((userDetails) => {
+          window.localStorage.setItem("user", JSON.stringify(userDetails));
+          setUser(userDetails);
+          navigate("/");
+        })
+        .catch((err) => console.error(err));
     }
   };
   return (
@@ -50,7 +60,9 @@ function LoginForm() {
             onChange={handleChange}
           />
         </div>
-        <button type="submit" className="button--submit">Login</button>
+        <button type="submit" className="button--submit">
+          Login
+        </button>
       </form>
     </div>
   );

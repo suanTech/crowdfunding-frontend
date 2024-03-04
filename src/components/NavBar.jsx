@@ -1,6 +1,8 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./NavBar.css";
-
+import logo from "/logo_symbol.png";
+import mobileLogo from "/logo_landscape.png";
+import { Box, Home, LogOut } from "react-feather";
 function NavBar() {
   const isUserLoggedin = window.localStorage.getItem("token") !== null;
   const navigate = useNavigate();
@@ -10,18 +12,38 @@ function NavBar() {
   };
   return (
     <header>
-      <h3>Crowdfunding</h3>
-      <nav className="nav">
-        <Link to="/">Home</Link>
-        {isUserLoggedin ? (
-          <button onClick={handleClick} className="button--static">Log Out</button>
-        ) : (
-          <>
-            <Link to="/login">Log In</Link>
-            <Link to="/signup">Sign up</Link>
-          </>
-        )}
-      </nav>
+      <div className="inner-wrapper">
+        <img src={logo} alt="hackeraiser logo" className="desktop-logo" />
+        <img src={mobileLogo} alt="hackeraiser logo" className="mobile-logo" />
+        <nav className="nav">
+          <div className="top-links">
+            <Link to="/" className="nav-item">
+              <Home size={16} />
+              <span className="nav-text">Home</span>
+            </Link>
+            <Link to="/projects" className="nav-item">
+              <Box size={16} />
+              <span className="nav-text">Projects</span>
+            </Link>
+          </div>
+          <div className="bottom-links">
+            {isUserLoggedin ? (
+              <button onClick={handleClick} className="button--static nav-item">
+                <span className="nav-text">Logout</span> <LogOut size={16} className="logout-icon"/>
+              </button>
+            ) : (
+              <>
+                <Link to="/login" className="nav-item">
+                  Log In
+                </Link>
+                <Link to="/signup" className="nav-item">
+                  Sign up
+                </Link>
+              </>
+            )}
+          </div>
+        </nav>
+      </div>
     </header>
   );
 }

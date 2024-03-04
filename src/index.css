@@ -35,10 +35,23 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  font-family: "urw-form", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.accent {
+  font-family: "mencken-std", sans-serif;
+  font-weight: 800;
+  font-style: normal;
 }
 
 /* A elements that don't have a class get default styles */
-a:not([class]) {
+a{
   text-decoration-skip-ink: auto;
   text-decoration: none;
   color: inherit;
@@ -59,14 +72,16 @@ select {
   font: inherit;
 }
 
-button, a {
+button,
+a {
   cursor: pointer;
   line-height: normal;
+  padding: 0;
 }
 /* Remove all animations and transitions for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
   html:focus-within {
-   scroll-behavior: auto;
+    scroll-behavior: auto;
   }
   *,
   *::before,
