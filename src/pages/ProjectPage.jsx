@@ -70,9 +70,13 @@ function ProjectPage() {
         </div>
       </div>
       {!isUserProjectOwner && (
-        <CustomModal buttonText="Donate Now">
+        user !== null ? (
+          <CustomModal buttonText="Donate Now">
           <CreatePledgeForm projectId={project.id} goal={project.goal}/>
         </CustomModal>
+        ) : (
+          <Link to="/signup" className="button--action">Sign up to donate</Link>
+        )
       )}
 
       <div className="pledges-list">
