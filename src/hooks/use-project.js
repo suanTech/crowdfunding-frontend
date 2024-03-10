@@ -15,6 +15,7 @@ export default function useProject(projectId) {
       .catch((err) => {
         setError(err);
         console.error(err);
+        setIsLoading(false);
       });
     setIsLoading(false);
   }, [projectId]);
@@ -25,10 +26,5 @@ export default function useProject(projectId) {
     const currentBalance = (totalPledgesAmount / projectData?.goal) * 100;
     return {totalPledgesAmount, currentBalance}
   }
-  // const totalPledgesAmount = project?.pledges.reduce((total, pledge) => {
-  //   return total + pledge.amount;
-  // }, 0);
-  // const currentBalance = (totalPledgesAmount / project?.goal) * 100;
-
   return { project, isLoading, error, getPledgesAmount };
 }

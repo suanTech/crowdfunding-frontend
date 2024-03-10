@@ -27,7 +27,7 @@ main {
 }
 
 @media (min-width: 768px) {
-  #root {
+  #root:not(:has(.not-found)) {
     display: grid;
     grid-template-columns: 95px calc(100% - 95px - 1rem);
     grid-template-areas: "nav main";

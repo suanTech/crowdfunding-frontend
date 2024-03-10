@@ -10,7 +10,6 @@ export default function useProjects() {
     getProjects()
       .then((projects) => {
         setProjects(projects);
-        setIsLoading(false);
       })
       .catch((err) => {
         setError(err)

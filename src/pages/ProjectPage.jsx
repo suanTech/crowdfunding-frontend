@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, redirect, useNavigate, useParams } from "react-router-dom";
 import useProject from "../hooks/use-project";
 import "./ProjectPage.css";
 import { useUserContext } from "../hooks/use-user-context";
@@ -6,32 +6,38 @@ import { useUserContext } from "../hooks/use-user-context";
 import CustomModal from "../components/Modal";
 import CreatePledgeForm from "../components/CreatePledgeForm";
 import { ChevronLeft, Gift } from "react-feather";
+import { ProjectNotFound } from "./NotFound";
 
 function ProjectPage() {
   let { slug } = useParams();
-  const { project, isLoading } = useProject(slug);
+  const { project, isLoading, error } = useProject(slug);
   const { user } = useUserContext();
+  const navigate = useNavigate();
   let isUserProjectOwner = false;
-  if(user != null) {
-    if(project !== null && user.id === project.owner){
+  if (user != null) {
+    if (project !== null && user.id === project.owner) {
       isUserProjectOwner = true;
     } else {
       isUserProjectOwner = false;
     }
-  }  
-  
-  if (!project || project.length == 0 || isLoading) return <p>Loading</p>;
+  }
+
   const createdDate = new Date(project.date_created);
   const formattedDate = createdDate.toLocaleDateString([], {
     day: "2-digit",
     month: "short",
     year: "numeric",
   });
-  const totalPledgesAmount = project.pledges.reduce((total, pledge) => {
+  const totalPledgesAmount = project?.pledges?.reduce((total, pledge) => {
     return total + pledge.amount;
   }, 0);
   const currentBalance = Math.floor((totalPledgesAmount / project.goal) * 100);
 
+  if (isLoading) return <p>Loading</p>;
+  if (error) {
+    console.error("Error fetching project:", error);
+    return <ProjectNotFound />;
+  }
   return (
     <div className="project-detail-page">
       <Link to="/projects" className="back--button">
@@ -42,8 +48,8 @@ function ProjectPage() {
       <div className="header-wrapper">
         <span className="project-title">{project.title}</span>
         {/* <Link to="/create-pledge" className="button--action">
-            Donate Now
-        </Link> */}
+              Donate Now
+          </Link> */}
       </div>
       <div className="pledges-detail">
         <span className="current-rate">
