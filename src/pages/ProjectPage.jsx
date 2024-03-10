@@ -11,7 +11,15 @@ function ProjectPage() {
   let { slug } = useParams();
   const { project, isLoading } = useProject(slug);
   const { user } = useUserContext();
-  const isUserProjectOwner = user !== null && user.id === project.owner;
+  let isUserProjectOwner = false;
+  if(user != null) {
+    if(project !== null && user.id === project.owner){
+      isUserProjectOwner = true;
+    } else {
+      isUserProjectOwner = false;
+    }
+  }  
+  
   if (!project || project.length == 0 || isLoading) return <p>Loading</p>;
   const createdDate = new Date(project.date_created);
   const formattedDate = createdDate.toLocaleDateString([], {
