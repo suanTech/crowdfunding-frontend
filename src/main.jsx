@@ -10,8 +10,9 @@ import SignUpPage from "./pages/SignUpPage";
 import UserProvider from "./hooks/use-user-context";
 import ProjectsPage from "./pages/ProjectsPage";
 import ProfilePage from "./pages/ProfilePage";
-import CreateProjectForm from "./components/CreateProjectForm";
-import NotFound, { ProjectNotFound } from "./pages/NotFound";
+import NotFound from "./pages/NotFound";
+import EditProjectPage from "./pages/EditProjectPage";
+import CreateProjectPage from "./pages/CreateProjectPage";
 
 const router = createBrowserRouter([
   {
@@ -24,7 +25,8 @@ const router = createBrowserRouter([
       { path: "/login", element: <LoginPage /> },
       { path: "/projects", element: <ProjectsPage /> },
       { path: "/project", element: <ProjectPage /> },
-      { path: "/create-project", element: <CreateProjectForm /> },
+      { path: "/create-project", element: <CreateProjectPage /> },
+      { path: "/edit-project/:slug", element: <EditProjectPage /> },
       { path: "/project/:slug", element: <ProjectPage />},
       { path: "/profile/:slug", element: <ProfilePage /> },
     ],

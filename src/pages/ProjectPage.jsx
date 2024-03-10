@@ -1,18 +1,17 @@
-import { Link, redirect, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import useProject from "../hooks/use-project";
 import "./ProjectPage.css";
 import { useUserContext } from "../hooks/use-user-context";
 
 import CustomModal from "../components/Modal";
 import CreatePledgeForm from "../components/CreatePledgeForm";
-import { ChevronLeft, Gift } from "react-feather";
+import { ChevronLeft, Edit, Gift } from "react-feather";
 import { ProjectNotFound } from "./NotFound";
 
 function ProjectPage() {
   let { slug } = useParams();
   const { project, isLoading, error } = useProject(slug);
   const { user } = useUserContext();
-  const navigate = useNavigate();
   let isUserProjectOwner = false;
   if (user != null) {
     if (project !== null && user.id === project.owner) {
@@ -47,10 +46,13 @@ function ProjectPage() {
       <span className="muted">{formattedDate}</span>
       <div className="header-wrapper">
         <span className="project-title">{project.title}</span>
-        {/* <Link to="/create-pledge" className="button--action">
-              Donate Now
-          </Link> */}
+        {isUserProjectOwner && (
+          <Link to={`/edit-project/${project.id}`}>
+            <Edit />
+          </Link>
+        )}
       </div>
+      <div className="project-description">{project.description}</div>
       <div className="pledges-detail">
         <span className="current-rate">
           <span className="accent">${totalPledgesAmount} </span>rasied of $
@@ -69,7 +71,7 @@ function ProjectPage() {
       </div>
       {!isUserProjectOwner && (
         <CustomModal buttonText="Donate Now">
-          <CreatePledgeForm projectId={project.id} />
+          <CreatePledgeForm projectId={project.id} goal={project.goal}/>
         </CustomModal>
       )}
 

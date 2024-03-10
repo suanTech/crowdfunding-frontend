@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useUserContext } from "../hooks/use-user-context";
 import postCreatePledge from "../api/post-pledge";
 
-export default function CreatePledgeForm(projectId) {
+export default function CreatePledgeForm(projectId, goal) {
   const { user } = useUserContext();
   const [pledgeDetail, setPledgeDetail] = useState({
     supporter: user.id,
@@ -10,10 +10,6 @@ export default function CreatePledgeForm(projectId) {
     comment: "",
     anonymous: false,
     project: projectId,
-  });
-  const [error, setError] = useState({
-    field: "",
-    errorMessage: "",
   });
   const [formState, setFormState] = useState("");
   const handleChange = (e) => {
@@ -59,6 +55,7 @@ export default function CreatePledgeForm(projectId) {
                 id="amount"
                 name="amount"
                 onChange={handleChange}
+                max={goal}
                 required
               />
             </span>

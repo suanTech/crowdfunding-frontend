@@ -8,13 +8,13 @@ export default function useProject(projectId) {
 
   useEffect(() => {
     getProject(projectId)
-      .then((projects) => {
-        setProject(projects);
+      .then((projectData) => {
+        setProject(projectData);
         setIsLoading(false);
+        console.log(projectData)
       })
       .catch((err) => {
         setError(err);
-        console.error(err);
         setIsLoading(false);
       });
     setIsLoading(false);

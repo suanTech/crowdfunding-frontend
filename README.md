@@ -1,8 +1,38 @@
-# React + Vite
+# Crowdfunding Front End
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Suan Choi**
+- https://hackeraiser.netlify.app/
 
-Currently, two official plugins are available:
+## Planning:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Concept/Name
+::Hackeraiser::
+Your friendly hub for supporting innovative and fun tech ideas/projects. Hackeraiser helps creators make the world a better place, one project at a time.
+
+
+### Intended Audience/User Stories
+- Developers
+  - Great opportunity to discover / to be a part of a compelling project.
+- Tech enthusiast
+  - Exciting discoveries and active participation
+- Innovator
+  - Supportive community for groundbreaking ideas
+- Business owner
+  - Exploring and investing in tech innovation
+
+### Front End Pages/Functionality
+
+- A page on the front end
+  - Landing(home) page ('/')
+  - Projects page ('/projects')
+  - Project detail page ('/project/:slug')
+  - Profile page ('/profile/:slug')
+  - Signup page('/signup')
+  - Login page('/login')
+  - Create Project page('/create-project')
+
+### Screenshots
+
+![Home page](/public/screenshots/screenshot-home.png)
+![Create Project page](/public/screenshots/screenshot-create-project.png)
+![DB Schema](/public/screenshots/screenshot-project-pledges.png)
