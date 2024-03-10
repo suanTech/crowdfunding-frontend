@@ -1,0 +1,49 @@
+
+@font-face {
+  font-family: Mona-Sans;
+  src: url('../assets/fonts/Mona-Sans.woff');
+}
+:root {
+  /* --body-font-family: "urw-form", sans-serif; */
+  --body-font-family: "Mona-Sans", sans-serif;
+  --color-body: #282828;
+  --color-grey-200: rgb(240, 239, 239);
+  --color-grey-300: rgb(219, 219, 219);
+  --color-grey-400: #757575;
+  --color-grey-600:rgb(63, 67, 77);
+  --color-primary-blue: rgb(37, 73, 157);
+  --color-primary-green: rgb(134, 206, 135);
+}
+body {
+  font-size: 16px;
+  color: var(--color-body);
+  background-color: var(--color-grey-200);
+}
+header{
+  position: fixed;
+}
+main {
+  padding: 80px 1rem 0;
+}
+
+@media (min-width: 768px) {
+  #root {
+    display: grid;
+    grid-template-columns: 95px calc(100% - 95px - 1rem);
+    grid-template-areas: "nav main";
+    min-height:100vh;
+  }
+  header {
+    grid-area: nav;
+    max-width: 80px;
+    min-height: 100vh;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    color: white;
+  }
+  main {
+    grid-area: main;
+    padding-top: 2rem;
+  }
+}

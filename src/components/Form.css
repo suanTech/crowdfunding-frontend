@@ -1,0 +1,99 @@
+.form-container {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items:center;
+}
+.form-container.modal {
+  min-height: unset;
+}
+.form {
+  margin: auto;
+  width:100%;
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;}
+.form.auth-form {
+  max-width: 500px;
+}
+.form.auth-form {
+  gap: 1.5rem;
+}
+.form .name-wrapper {
+  display: flex;
+  gap: 1rem;
+}
+.form-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.form-field.checkbox {
+  justify-content: start;
+  gap: 1rem;
+}
+.form-field.half-width {
+  flex-wrap: wrap;
+  gap: .5rem;
+}
+.form-field.half-width input{
+  width: 100%;
+}
+.form-field input:not([type="checkbox"]), .form-field textarea {
+  width: 60%;
+  padding: 4px 1rem;
+  border: none;
+  background-color: #dbdada;
+  border-radius: 6px;
+}
+form h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.button--submit {
+  padding: 8px 2rem;
+  width: fit-content;
+  align-self: end;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background-color: #44529f;
+}
+
+.error-text {
+  color: rgb(211, 10, 44);
+  font-size: .8rem;
+  position: absolute;
+  top: 100%;
+  right: 0;
+}
+.link-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.link {
+  font-weight: bold;
+  color: var(--color-primary-blue);
+}
+.input-symbol {
+  position: relative;
+  width: 60%;
+}
+.form-field .input-symbol input {
+  padding-left: 18px;
+  width: 100%;
+}
+.input-symbol::before {
+  position: absolute;
+  top:4px;
+  left: 4px;
+  content: '$'; 
+}
+.success-message {
+  margin: auto;
+}

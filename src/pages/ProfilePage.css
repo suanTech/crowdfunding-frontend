@@ -1,0 +1,13 @@
+.text-subtle {
+  display: block;
+  font-size: 12px;
+  line-height: normal;
+  color: var(--color-grey-600);
+}
+
+.sub-header {
+  font-size: 1.4rem;
+  font-weight: 500;
+  display: block;
+  margin-top: 2rem;
+}
