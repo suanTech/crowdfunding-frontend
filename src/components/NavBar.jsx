@@ -3,12 +3,16 @@ import "./NavBar.css";
 import logo from "/logo_symbol.png";
 import mobileLogo from "/logo_landscape.png";
 import { Box, Home, LogOut } from "react-feather";
+import { useUserContext } from "../hooks/use-user-context";
 function NavBar() {
-  const isUserLoggedin = window.localStorage.getItem("token") !== null;
+  const isUserLoggedin = window.localStorage.getItem("user") !== null;
+  const {user} = useUserContext();
   const navigate = useNavigate();
   const handleClick = () => {
+    window.localStorage.removeItem("user");
     window.localStorage.removeItem("token");
     navigate("/");
+    
   };
   return (
     <header>
@@ -28,9 +32,16 @@ function NavBar() {
           </div>
           <div className="bottom-links">
             {isUserLoggedin ? (
-              <button onClick={handleClick} className="button--static nav-item">
-                <span className="nav-text">Logout</span> <LogOut size={16} className="logout-icon"/>
-              </button>
+              <>
+                <Link to={`/profile/${user.id}`} className="profile-link">{user.username}</Link>
+                <button
+                  onClick={handleClick}
+                  className="button--static nav-item"
+                >
+                  <span className="nav-text">Logout</span>{" "}
+                  <LogOut size={16} className="logout-icon" />
+                </button>
+              </>
             ) : (
               <>
                 <Link to="/login" className="nav-item">

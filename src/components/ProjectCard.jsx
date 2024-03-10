@@ -9,14 +9,28 @@ function ProjectCard({ projectData }) {
     month: "short",
     year: "numeric",
   });
+  const totalPledgesAmount = projectData.pledges.reduce((total, pledge) => {
+    return total + pledge.amount;
+  }, 0);
+  const currentBalance = (totalPledgesAmount / projectData.goal) * 100;
   return (
     <div className="project-card">
       <Link to={`/project/${projectData.id}`}>
         <img src={projectData.image} alt={projectData.description} />
         <div className="project-detail">
-          <h3>{projectData.title}</h3>
-          <p>{projectData.description}</p>
-          <p>{formattedDate}</p>
+          <p className="project-date">{formattedDate}</p>
+          <p className="project-title">{projectData.title}</p>
+          <p className="project-description">{projectData.description}</p>
+          <div className="progress-bar">
+            <span
+              className="current-amount"
+              style={{ width: currentBalance + "%" }}
+            ></span>
+          </div>
+          <div className="progress-text">
+            <span>${totalPledgesAmount}</span>
+            <span>${projectData.goal}</span>
+          </div>
         </div>
       </Link>
     </div>

@@ -23,7 +23,6 @@ function LoginForm() {
     if (credentials.username && credentials.password) {
       postLogin(credentials.username, credentials.password)
         .then((res) => {
-          console.log(res);
           window.localStorage.setItem("token", res.token);
           return getUser(res.user_id);
         })
@@ -37,7 +36,7 @@ function LoginForm() {
   };
   return (
     <div className="form-container">
-      <form onSubmit={handleSubmit} id="form--login" className="form">
+      <form onSubmit={handleSubmit} className="form auth-form">
         <h2>Login</h2>
         <div className="form-field">
           <label htmlFor="username">Username:</label>

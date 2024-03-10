@@ -13,11 +13,22 @@ export default function useProject(projectId) {
         setIsLoading(false);
       })
       .catch((err) => {
-        setError(err)
+        setError(err);
         console.error(err);
       });
     setIsLoading(false);
   }, [projectId]);
+  const getPledgesAmount = (projectData) => {
+    const totalPledgesAmount = projectData?.pledges.reduce((total, pledge) => {
+      return total + pledge.amount;
+    }, 0);
+    const currentBalance = (totalPledgesAmount / projectData?.goal) * 100;
+    return {totalPledgesAmount, currentBalance}
+  }
+  // const totalPledgesAmount = project?.pledges.reduce((total, pledge) => {
+  //   return total + pledge.amount;
+  // }, 0);
+  // const currentBalance = (totalPledgesAmount / project?.goal) * 100;
 
-  return {project, isLoading, error};
+  return { project, isLoading, error, getPledgesAmount };
 }

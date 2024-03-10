@@ -39,7 +39,10 @@ header {
 .desktop-logo {
   display: none;
 }
-
+.profile-link {
+  font-weight: bold;
+  color: var(--color-primary-blue);
+}
 .button--static {
   background: none;
   border: none;
@@ -61,6 +64,9 @@ header {
   }
 }
 @media(min-width: 768px) {
+  header {
+    padding: 1.5rem 1rem;
+  }
   .inner-wrapper, .nav, .top-links, .bottom-links {
     flex-direction: column;
     align-items: center;
@@ -68,6 +74,7 @@ header {
   .inner-wrapper {
     flex-direction: column;
     justify-content: start;
+    gap: 1rem;
   }
   .nav {
     flex-direction: column;

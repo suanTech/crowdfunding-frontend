@@ -32,7 +32,6 @@ export default function SignUpForm() {
         setFormState("pending");
         postSignUp(credentials)
           .then((res) => {
-            console.log(res);
             setFormState("successful");
           })
           .catch((err) => {
@@ -54,7 +53,7 @@ export default function SignUpForm() {
       ) : formState === "error" ? (
         <p>Error while submitting the sign up form</p>
       ) : (
-        <form onSubmit={handleSubmit} id="form--signup" className="form">
+        <form onSubmit={handleSubmit} className="form auth-form">
           <h2>Sign up</h2>
           <div className="name-wrapper">
             <div className="form-field half-width">
@@ -119,10 +118,18 @@ export default function SignUpForm() {
               <></>
             )}
           </div>
+          <div className="link-wrapper">
+            <div>
+              Already have an account?{" "}
+              <Link className="link" to="/login">
+                Log in
+              </Link>
+            </div>
 
-          <button type="submit" className="button--submit">
-            Sign up
-          </button>
+            <button type="submit" className="button--submit">
+              Sign up
+            </button>
+          </div>
         </form>
       )}
     </div>

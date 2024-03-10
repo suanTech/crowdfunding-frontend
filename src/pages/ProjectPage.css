@@ -1,0 +1,47 @@
+.project-detail-page h2,
+h3 {
+  font-family: var(--body-font-family);
+}
+.back--button {
+  display: flex;
+  align-items: center;
+}
+.project-title {
+  display: block;
+  font-size: 1.2rem;
+}
+.project-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-block: 1rem;
+}
+.project-detail-page .progress-text{
+  justify-content: flex-end;
+}
+.current-rate {
+  display: block;
+  margin-block: 1rem;
+}
+.current-rate .accent {
+  font-size: 1.5rem;
+}
+.pledges-list, .pledges-list ul {
+  margin-top: 1rem;
+}
+.pledges-list li {
+  background-color: var(--color-grey-300);
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.pledge-amount {
+  font-size: 1.2rem;
+}
+.pledge-comment {
+
+  font-style: italic;
+}

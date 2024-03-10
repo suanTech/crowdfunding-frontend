@@ -9,6 +9,8 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import UserProvider from "./hooks/use-user-context";
 import ProjectsPage from "./pages/ProjectsPage";
+import ProfilePage from "./pages/ProfilePage";
+import CreateProjectForm from "./components/CreateProjectForm";
 
 const router = createBrowserRouter([
   {
@@ -19,7 +21,9 @@ const router = createBrowserRouter([
       { path: "/login", element: <LoginPage /> },
       { path: "/projects", element: <ProjectsPage /> },
       { path: "/project", element: <ProjectPage /> },
+      { path: "/create-project", element: <CreateProjectForm /> },
       { path: "/project/:slug", element: <ProjectPage /> },
+      { path: "/profile/:slug", element: <ProfilePage /> },
     ],
   },
 ]);

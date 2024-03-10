@@ -1,5 +1,5 @@
-export default async function getProjects() {
-  const url = `${import.meta.env.VITE_API_URL}/projects`;
+export default async function getPledges() {
+  const url = `${import.meta.env.VITE_API_URL}/pledges`;
   const res = await fetch(url, {
     method: "GET",
   });
